@@ -16,6 +16,32 @@ export const reducer = (state, action) => {
                     }
                 ]
             }
+            case 'TOGGLE_COMPLETED' :
+                return{
+                    ...state,
+                    items : state.items.map((val) => {
+                        if (val.id === action.payload) {
+                            return{
+                                ...val,
+                                completed : !val.completed
+                            }
+                        } else {
+                            return val
+                        }
+                          
+                    })
+                } 
+                
+                
+                
+            case 'REMOVE_COMPLETED' :
+                return {
+                    ...state,
+                    items: state.items.filter(val => {
+                        return val.completed !== true
+                    })
+                }
+                
         default : return state;
     }
 }

@@ -18,9 +18,13 @@ export const ItemCreator = (props) => {
                     console.log(textState)
                     props.setText('')
                 }}>Add</button>
+                <button onClick={(e)=>{
+                    e.preventDefault();
+                    dispatch({type: 'REMOVE_COMPLETED'})
+                }}>Remove Completed</button>
             </form>
             <p>{textState.items[0].item}</p>
-            <TodoList textState={textState}/>
+            <TodoList textState={textState} dispatch={dispatch}/>
         </div>
         
     )

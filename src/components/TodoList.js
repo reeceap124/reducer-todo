@@ -5,8 +5,8 @@ import {ListItem} from './ListItem'
 export const TodoList = props => {
     return (
         <div>
-            {props.textState.items.map((val, index)=> (
-                <ListItem key={index} todo={val}/>
+            {props.textState.items.map((val)=> (
+                <ListItem key={val.id} todo={val} dispatch={props.dispatch}/>
             ))}
         </div>
     )
