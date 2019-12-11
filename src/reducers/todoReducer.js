@@ -1,10 +1,5 @@
 export const initialState = {
-	items: [
-	{
-	item: 'This is initial item state',
-	completed: false,
-	id: 3892987589
-	}]
+	items: [{}]
 }
 
 
@@ -13,7 +8,7 @@ export const reducer = (state, action) => {
         case 'ADD_TODO' : 
             return {
                 ...state,
-                items: [
+                items: [...state.items,
                     {
                         item: action.payload,
                         completed: false,
